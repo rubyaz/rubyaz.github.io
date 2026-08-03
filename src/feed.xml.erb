@@ -1,0 +1,30 @@
+---
+layout: false
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>RubyAZ Meetup Events</title>
+  <link href="<%= site.config.url || "http://localhost:4000" %>/feed.xml" rel="self"/>
+  <link href="<%= site.config.url || "http://localhost:4000" %>/"/>
+  <updated><%= Time.now.xmlschema %></updated>
+  <id><%= site.config.url || "http://localhost:4000" %>/</id>
+  <author>
+    <name>RubyAZ Organizers</name>
+  </author>
+  <% collections.posts.resources.select { |p| p.data.tags&.include?('meetup') }.sort_by { |p| p.data.event_date }.reverse.each do |post| %>
+    <entry>
+      <title><%= post.data.title %> (Event Date: <%= post.data.event_date %>)</title>
+      <link href="<%= site.config.url || "http://localhost:4000" %><%= post.relative_url %>"/>
+      <id><%= site.config.url || "http://localhost:4000" %><%= post.relative_url %></id>
+      <published><%= post.date.xmlschema %></published>
+      <updated><%= post.date.xmlschema %></updated>
+      <summary>Meetup scheduled for <%= post.data.event_date %></summary>
+      <content type="html"><![CDATA[
+        <p><strong>Event Date:</strong> <%= post.data.event_date %></p>
+        <%= post.content %>
+        <p><a href="https://www.meetup.com/ruby-az/">RSVP on Meetup</a></p>
+      ]]></content>
+    </entry>
+  <% end %>
+</feed>

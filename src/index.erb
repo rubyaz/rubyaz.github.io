@@ -1,0 +1,181 @@
+---
+layout: default
+---
+<div class="flex flex-col w-full">
+<!-- Interactive Background Element -->
+<div class="fixed inset-0 pointer-events-none z-0 opacity-20 overflow-hidden">
+<svg class="absolute -top-1/4 -right-1/4 w-[800px] h-[800px]" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+<circle cx="500" cy="500" fill="url(#sunset-grad)" r="400"></circle>
+<defs>
+<radialGradient id="sunset-grad">
+<stop offset="0%" stop-color="#b42145"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</radialGradient>
+</defs>
+</svg>
+</div>
+
+<!-- Header Section -->
+<section class="relative z-10 px-margin-mobile lg:px-margin-desktop py-16 lg:py-24 max-w-container-max mx-auto w-full text-center">
+<h1 class="font-display-lg text-[64px] leading-tight text-deep-purple mb-6">
+  Arizona <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-sunset-orange">Ruby</span> Users Group
+</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto text-xl mb-12">
+  Join us in the Valley of the Sun for discussions, presentations, and networking around the Ruby programming language and its ecosystem.
+</p>
+<div class="flex justify-center gap-4">
+<a href="#upcoming-events" class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-primary-container transition-all shadow-lg">View Upcoming Events</a>
+<a href="https://www.meetup.com/ruby-az/" target="_blank" class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-sunset-orange transition-all shadow-lg">Join us on Meetup</a>
+</div>
+</section>
+
+<!-- Upcoming Events -->
+<section id="upcoming-events" class="relative z-10 bg-surface-container-low/50 py-24 border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop w-full">
+<div class="flex items-center justify-between mb-12">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Upcoming Events</h3>
+</div>
+<div id="upcoming-events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- JavaScript will inject upcoming events here -->
+</div>
+</div>
+</section>
+
+<!-- Sponsors -->
+<section id="sponsors" class="relative z-10 px-margin-mobile lg:px-margin-desktop py-24 max-w-container-max mx-auto w-full">
+<div class="text-center mb-16">
+<h3 class="font-headline-lg text-headline-lg text-deep-purple mb-4">Our Generous Sponsors</h3>
+<p class="text-on-surface-variant text-lg">Thank you to the organizations that make RubyAZ possible.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+<div class="bg-surface-container-low p-8 rounded-2xl shadow-sm">
+<div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-on-primary-container text-3xl">domain</span>
+</div>
+<h4 class="font-headline-lg text-xl text-deep-purple mb-2">Venue Sponsor</h4>
+<p class="text-on-surface-variant font-body-md">Acme Corp</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl shadow-sm">
+<div class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl">local_pizza</span>
+</div>
+<h4 class="font-headline-lg text-xl text-deep-purple mb-2">Food & Drinks</h4>
+<p class="text-on-surface-variant font-body-md">RubyGems Foundation</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl shadow-sm">
+<div class="w-16 h-16 bg-tertiary-container rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl">group</span>
+</div>
+<h4 class="font-headline-lg text-xl text-deep-purple mb-2">Organizers</h4>
+<p class="text-on-surface-variant font-body-md">Phoenix Ruby Community</p>
+</div>
+</div>
+</section>
+
+<!-- Past Events -->
+<section id="past-events" class="relative z-10 bg-surface-container-low/50 py-24 border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop w-full">
+<div class="flex items-center justify-between mb-12">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Recent Meetups</h3>
+</div>
+<div id="past-events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- JavaScript will inject past events here -->
+</div>
+</div>
+</section>
+
+</div>
+
+<!-- Hidden raw events rendered by Bridgetown -->
+<div id="raw-events" class="hidden">
+  <% collections.posts.resources.select { |p| p.data.tags&.include?('meetup') }.each do |post| %>
+    <div class="meetup-event group flex flex-col bg-surface rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-outline-variant overflow-hidden relative" data-event-date="<%= post.data.event_date %>">
+      <div class="event-badge hidden absolute top-4 right-4 bg-sunset-orange text-white text-xs font-bold px-2 py-1 rounded">NEXT</div>
+      <div class="p-8 flex flex-col h-full">
+        <div class="flex justify-between items-start mb-6">
+          <span class="font-label-mono text-label-mono text-outline-variant event-date-display"><%= post.data.event_date %></span>
+          <span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">calendar_month</span>
+        </div>
+        <h4 class="font-headline-lg text-[22px] text-deep-purple mb-4 group-hover:translate-x-1 transition-transform"><%= post.data.title %></h4>
+        <div class="font-body-md text-on-surface-variant mb-6 line-clamp-3">
+          <%= post.content %>
+        </div>
+        <a href="https://www.meetup.com/ruby-az/" target="_blank" class="event-rsvp mt-auto bg-surface-container text-center text-primary font-bold py-2 rounded hover:bg-primary hover:text-white transition-colors block">RSVP on Meetup</a>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const rawEvents = Array.from(document.querySelectorAll('.meetup-event'));
+  const upcomingContainer = document.getElementById('upcoming-events-container');
+  const pastContainer = document.getElementById('past-events-container');
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  
+  const pastEvents = [];
+  const upcomingEvents = [];
+
+  rawEvents.forEach(eventEl => {
+    // Parse the date in local timezone securely
+    const dateStr = eventEl.dataset.eventDate;
+    const [year, month, day] = dateStr.split('-');
+    const eventDate = new Date(year, month - 1, day);
+    
+    const dateDisplay = eventEl.querySelector('.event-date-display');
+    if (dateDisplay) {
+      dateDisplay.textContent = eventDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    if (eventDate >= now) {
+      upcomingEvents.push(eventEl);
+    } else {
+      pastEvents.push(eventEl);
+    }
+  });
+
+  // Sort upcoming events ascending
+  upcomingEvents.sort((a, b) => new Date(a.dataset.eventDate) - new Date(b.dataset.eventDate));
+  // Sort past events descending
+  pastEvents.sort((a, b) => new Date(b.dataset.eventDate) - new Date(a.dataset.eventDate));
+
+  upcomingEvents.forEach((eventEl, index) => {
+    eventEl.classList.remove('border-outline-variant');
+    eventEl.classList.add('border-sunset-orange');
+    eventEl.querySelector('.event-date-display').classList.add('text-sunset-orange');
+    if (index === 0) {
+      eventEl.querySelector('.event-badge').classList.remove('hidden');
+    }
+    upcomingContainer.appendChild(eventEl);
+  });
+
+  pastEvents.forEach((eventEl, index) => {
+    eventEl.classList.remove('border-outline-variant');
+    const colors = ['border-secondary', 'border-primary', 'border-cactus-green'];
+    const color = colors[index % colors.length];
+    eventEl.classList.add(color);
+    eventEl.querySelector('.event-date-display').classList.add(color.replace('border-', 'text-'));
+    eventEl.querySelector('.event-rsvp').classList.add('hidden');
+    pastContainer.appendChild(eventEl);
+  });
+
+  const cards = document.querySelectorAll('.group');
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+    observer.observe(card);
+  });
+});
+</script>
