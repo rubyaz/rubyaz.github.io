@@ -62,10 +62,9 @@
                 </div>
                 <p class="text-label-mono font-label-mono text-on-surface-variant">The Arizona Ruby User Group</p>
             </div>
-            <div class="text-on-surface-variant text-label-mono font-label-mono flex items-center gap-4">
-                <span>©
-                    <%= Time.now.year %> Ruby::AZ. Built with 💎, ❤️ and lots of ☀️</span>
-                <span class="text-outline-variant">|</span>
+            <div class="text-on-surface-variant text-label-mono font-label-mono flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center">
+                <span>© <%= Time.now.year %> Ruby::AZ. Built with 💎, ❤️ and lots of ☀️</span>
+                <span class="text-outline-variant hidden md:inline">|</span>
                 <a href="/feed.xml" target="_blank" class="flex items-center gap-1 hover:text-secondary transition-colors" title="RSS Feed">
                     <span class="material-symbols-outlined text-[18px]">rss_feed</span>
                     RSS
