@@ -1,0 +1,98 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "date"
+require "fileutils"
+
+def usage
+  puts <<~USAGE
+    Usage: bin/event <command> [options]
+
+    Commands:
+      new <event_date> <title>    Create a new event post. <event_date> must be YYYY-MM-DD.
+                                  Example: bin/event new 2026-08-20 "Intro to Hotwire"
+      publish                     Commit and push the new events to the repository to trigger a deployment.
+  USAGE
+end
+
+def slugify(string)
+  string.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+end
+
+def cmd_new(args)
+  if args.length < 2
+    puts "Error: Missing event date or title."
+    usage
+    exit 1
+  end
+
+  date_str = args[0]
+  title = args[1..].join(" ")
+
+  begin
+    Date.parse(date_str)
+  rescue Date::Error
+    puts "Error: Invalid date format. Please use YYYY-MM-DD."
+    exit 1
+  end
+
+  slug = slugify(title)
+  publish_date = Date.today.strftime("%Y-%m-%d")
+  filename = "src/_posts/#{publish_date}-#{slug}.md"
+
+  if File.exist?(filename)
+    puts "Error: File #{filename} already exists."
+    exit 1
+  end
+
+  content = <<~POST
+    ---
+    layout: post
+    title: "#{title}"
+    event_date: "#{date_str}"
+    tags: ["meetup"]
+    # meetup_link: "https://www.meetup.com/ruby-az/events/..."
+    ---
+
+    Join us for **#{title}**!
+
+    More details coming soon.
+  POST
+
+  File.write(filename, content)
+  puts "Created new event post at #{filename}"
+end
+
+def cmd_publish(args)
+  puts "Staging changes..."
+  unless system("git add src/_posts/")
+    puts "Failed to add changes to git."
+    exit 1
+  end
+
+  puts "Committing changes..."
+  unless system("git commit -m 'Add new event post'")
+    puts "No new changes to commit, or commit failed."
+  end
+
+  puts "Pushing to remote to trigger deployment..."
+  unless system("git push")
+    puts "Failed to push to remote."
+    exit 1
+  end
+
+  puts "Successfully published events!"
+end
+
+case ARGV[0]
+when "new"
+  cmd_new(ARGV[1..])
+when "publish"
+  cmd_publish(ARGV[1..])
+when "-h", "--help", "help", nil
+  usage
+else
+  puts "Unknown command: #{ARGV[0]}"
+  usage
+  exit 1
+end
