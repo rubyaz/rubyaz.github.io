@@ -1,56 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Ruby::AZ</title>
-<style>@layer base{html,body{margin:0;padding:0;scroll-behavior:smooth;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style>
-<script src="https://cdn.tailwindcss.com"></script>
-<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-container":"#dea664","secondary-fixed-dim":"#ffb2ba","on-primary-fixed-variant":"#533390","on-secondary-fixed":"#400010","outline-variant":"#cbc3d3","on-primary":"#ffffff","tertiary-fixed":"#ffddb9","surface-neutral":"#F6F7F8","inverse-on-surface":"#f5eef7","tertiary-fixed-dim":"#f6bb77","surface-container-highest":"#e7e0e9","on-tertiary-fixed":"#2b1700","background":"#fef7ff","error":"#ba1a1a","cactus-green":"#00CC99","tertiary":"#442700","error-container":"#ffdad6","surface-container":"#f2ecf5","surface-bright":"#fef7ff","surface-container-low":"#f8f1fa","surface-variant":"#e7e0e9","on-background":"#1d1a21","sunset-orange":"#F39200","surface-dim":"#ded8e1","tertiary-container":"#623b00","on-secondary":"#ffffff","deep-purple":"#321E56","inverse-primary":"#d2bbff","primary-container":"#50308d","surface":"#fef7ff","on-error":"#ffffff","on-tertiary-fixed-variant":"#663e02","primary-fixed-dim":"#d2bbff","primary-fixed":"#eaddff","on-error-container":"#93000a","on-primary-fixed":"#25005a","on-secondary-container":"#5f001c","inverse-surface":"#322f36","secondary-fixed":"#ffd9dc","outline":"#7b7582","surface-container-high":"#ede6ef","on-secondary-fixed-variant":"#910030","on-surface":"#1d1a21","primary":"#391576","on-surface-variant":"#494551","surface-tint":"#6b4caa","secondary":"#b42145","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","on-primary-container":"#c0a1ff","secondary-container":"#fc5977"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"32px","container-max":"1200px","margin-mobile":"16px","base":"8px","gutter":"24px"},"fontFamily":{"headline-lg":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"display-lg":["Hanken Grotesk"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Hanken Grotesk"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"800"}],"label-mono":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","fontWeight":"700"}]}}}}</script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
-<link rel="alternate" type="application/atom+xml" title="RubyAZ Meetup Events" href="/feed.xml">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Ruby::AZ</title>
+    <style>
+        @font-face {
+          font-family: 'Peralta';
+          src: url('/fonts/Peralta.woff2') format('woff2');
+          font-weight: normal;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: 'National Park';
+          src: url('/fonts/National_Park.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+        @layer base{html,body{margin:0;padding:0;scroll-behavior:smooth;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-container":"#dea664","secondary-fixed-dim":"#ffb2ba","on-primary-fixed-variant":"#533390","on-secondary-fixed":"#400010","outline-variant":"#cbc3d3","on-primary":"#ffffff","tertiary-fixed":"#ffddb9","surface-neutral":"#F6F7F8","inverse-on-surface":"#f5eef7","tertiary-fixed-dim":"#f6bb77","surface-container-highest":"#e7e0e9","on-tertiary-fixed":"#2b1700","background":"#fef7ff","error":"#ba1a1a","cactus-green":"#00CC99","tertiary":"#442700","error-container":"#ffdad6","surface-container":"#f2ecf5","surface-bright":"#fef7ff","surface-container-low":"#f8f1fa","surface-variant":"#e7e0e9","on-background":"#1d1a21","sunset-orange":"#F39200","surface-dim":"#ded8e1","tertiary-container":"#623b00","on-secondary":"#ffffff","deep-purple":"#321E56","inverse-primary":"#d2bbff","primary-container":"#50308d","surface":"#fef7ff","on-error":"#ffffff","on-tertiary-fixed-variant":"#663e02","primary-fixed-dim":"#d2bbff","primary-fixed":"#eaddff","on-error-container":"#93000a","on-primary-fixed":"#25005a","on-secondary-container":"#5f001c","inverse-surface":"#322f36","secondary-fixed":"#ffd9dc","outline":"#7b7582","surface-container-high":"#ede6ef","on-secondary-fixed-variant":"#910030","on-surface":"#1d1a21","primary":"#391576","on-surface-variant":"#494551","surface-tint":"#6b4caa","secondary":"#b42145","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","on-primary-container":"#c0a1ff","secondary-container":"#fc5977"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"32px","container-max":"1200px","margin-mobile":"16px","base":"8px","gutter":"24px"},"fontFamily":{"headline-lg":["Peralta"],"body-md":["National Park"],"display-lg":["Peralta"],"label-mono":["National Park"],"headline-lg-mobile":["Peralta"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"800"}],"label-mono":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","fontWeight":"700"}]}}}}</script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link rel="alternate" type="application/atom+xml" title="RubyAZ Meetup Events" href="/feed.xml">
+    <link rel="icon" type="image/webp" href="/favicon.webp">
 </head>
+
 <body class="bg-surface font-body-md text-body-md text-on-surface">
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-<div class="h-20 w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between">
-<div class="flex items-center gap-4">
-<a href="/" class="flex items-center gap-4">
-<img alt="RubyAZ Logo" class="h-8 w-auto object-contain" src="/images/logo.png">
-<span class="font-headline-lg text-headline-lg text-deep-purple tracking-tight">Ruby::AZ</span>
-</a>
-</div>
-<nav class="hidden md:flex items-center gap-8" data-active-classes="text-secondary font-bold">
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#upcoming-events">Upcoming Events</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#past-events">Past Events</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#sponsors">Sponsors</a>
-</nav>
-<div class="flex items-center gap-4">
-<a class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-sunset-orange transition-all shadow-lg" href="https://www.meetup.com/ruby-az/" target="_blank">Join on Meetup</a>
-</div>
-</div>
-</header>
-<main class="relative pt-20 bg-surface min-h-screen">
-<%= yield %>
-</main>
-<footer class="w-full bg-surface-container-low border-t border-outline-variant py-12 mt-24">
-<div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="flex flex-col gap-2 items-center md:items-start">
-<div class="flex items-center gap-2">
-<img alt="RubyAZ Logo" class="h-6 w-auto grayscale opacity-50" src="/images/logo.png">
-<span class="font-headline-lg text-headline-lg-mobile text-on-surface-variant opacity-70">Ruby::AZ</span>
-</div>
-<p class="text-label-mono font-label-mono text-on-surface-variant">The Arizona Ruby Community</p>
-</div>
-<div class="text-on-surface-variant text-label-mono font-label-mono flex items-center gap-4">
-  <span>© <%= Time.now.year %> RubyAZ. Built with 💎 and ☀️</span>
-  <span class="text-outline-variant">|</span>
-  <a href="/feed.xml" target="_blank" class="flex items-center gap-1 hover:text-secondary transition-colors" title="RSS Feed">
-    <span class="material-symbols-outlined text-[18px]">rss_feed</span>
-    RSS
-  </a>
-</div>
-</div>
-</footer>
+    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div class="h-20 w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex items-center gap-4">
+                    <img alt="RubyAZ Logo" class="h-8 w-auto object-contain" src="/images/logo.webp">
+                    <span class="font-headline-lg text-headline-lg text-deep-purple tracking-tight">Ruby::AZ</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-8" data-active-classes="text-secondary font-bold">
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#upcoming-events">Upcoming Events</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#past-events">Past Events</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#sponsors">Sponsors</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-mono text-label-mono hover:bg-sunset-orange transition-all shadow-lg" href="https://www.meetup.com/ruby-az/" target="_blank">Join on Meetup</a>
+            </div>
+        </div>
+    </header>
+    <main class="relative pt-20 bg-surface min-h-screen">
+        <%= yield %>
+    </main>
+    <footer class="w-full bg-surface-container-low border-t border-outline-variant py-12 mt-24">
+        <div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2 items-center md:items-start">
+                <div class="flex items-center gap-2">
+                    <img alt="RubyAZ Logo" class="h-6 w-auto grayscale opacity-50" src="/images/logo.webp">
+                    <span class="font-headline-lg text-headline-lg-mobile text-on-surface-variant opacity-70">Ruby::AZ</span>
+                </div>
+                <p class="text-label-mono font-label-mono text-on-surface-variant">The Arizona Ruby User Group</p>
+            </div>
+            <div class="text-on-surface-variant text-label-mono font-label-mono flex items-center gap-4">
+                <span>©
+                    <%= Time.now.year %> Ruby::AZ. Built with 💎 and ☀️</span>
+                <span class="text-outline-variant">|</span>
+                <a href="/feed.xml" target="_blank" class="flex items-center gap-1 hover:text-secondary transition-colors" title="RSS Feed">
+                    <span class="material-symbols-outlined text-[18px]">rss_feed</span>
+                    RSS
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
