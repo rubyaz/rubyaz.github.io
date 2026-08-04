@@ -16,7 +16,7 @@ layout: default
     </div>
     <!-- Header Section -->
     <section class="relative z-10 px-margin-mobile lg:px-margin-desktop py-16 lg:py-24 max-w-container-max mx-auto w-full text-center">
-        <img src="/images/logo_hero.webp" alt="RubyAZ Hero Logo" class="mx-auto h-32 md:h-48 w-auto object-contain mb-8 hover:scale-105 transition-transform duration-500 drop-shadow-xl rounded-2xl">
+        <img src="/images/logo_hero.webp" alt="RubyAZ Hero Logo" class="mx-auto h-48 md:h-64 w-auto object-contain mb-8 hover:scale-105 transition-transform duration-500 drop-shadow-xl rounded-2xl">
         <h1 class="font-display-lg text-[64px] leading-tight text-deep-purple mb-6">
             Arizona <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-sunset-orange">Ruby</span> Users Group
         </h1>
@@ -87,8 +87,8 @@ layout: default
 </div>
 <!-- Hidden raw events rendered by Bridgetown -->
 <div id="raw-events" class="hidden">
-    <% collections.posts.resources.select { |p| p.data.tags&.include?('meetup') }.each do |post| %>
-    <div class="meetup-event group flex flex-col bg-surface rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-outline-variant overflow-hidden relative" data-event-date="<%= post.data.event_date %>">
+  <% collections.posts.resources.select { |p| p.data.tags&.include?('meetup') }.each do |post| %>
+    <div class="meetup-event group flex flex-col bg-surface rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-outline-variant overflow-hidden relative" data-event-date="<%= post.data.event_date %>" data-is-cta="<%= post.data.is_cta %>">
         <div class="event-badge hidden absolute top-4 right-4 bg-sunset-orange text-white text-xs font-bold px-2 py-1 rounded">NEXT</div>
         <div class="p-8 flex flex-col h-full">
             <div class="flex justify-between items-start mb-6">
@@ -96,14 +96,18 @@ layout: default
                     <%= post.data.event_date %></span>
                 <span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">calendar_month</span>
             </div>
-            <h4 class="font-headline-lg text-[22px] text-deep-purple mb-4 group-hover:translate-x-1 transition-transform">
-                <%= post.data.title %>
-            </h4>
-            <div class="font-body-md text-on-surface-variant mb-6 line-clamp-3">
-                <%= post.content %>
-            </div>
-            <a href="https://www.meetup.com/ruby-az/" target="_blank" class="event-rsvp mt-auto bg-surface-container text-center text-primary font-bold py-2 rounded hover:bg-primary hover:text-white transition-colors block">RSVP on Meetup</a>
+            <a href="<%= post.relative_url %>" class="hover:text-secondary transition-colors">
+                <h4 class="font-headline-lg text-[22px] text-deep-purple mb-4 group-hover:translate-x-1 transition-transform"><%= post.data.title %></h4>
+            </a>
+        <div class="font-body-md text-on-surface-variant mb-6 line-clamp-3">
+          <%= post.content %>
         </div>
+        <% if post.data.is_cta %>
+          <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="event-rsvp mt-auto bg-surface-container text-center text-primary font-bold py-2 rounded hover:bg-primary hover:text-white transition-colors block">Contact Us</a>
+        <% else %>
+          <a href="<%= post.data.meetup_link || 'https://www.meetup.com/ruby-az/' %>" target="_blank" class="event-rsvp mt-auto bg-surface-container text-center text-primary font-bold py-2 rounded hover:bg-primary hover:text-white transition-colors block">RSVP on Meetup</a>
+        <% end %>
+      </div>
     </div>
     <% end %>
 </div>
@@ -125,9 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const eventDate = new Date(year, month - 1, day);
 
         const dateDisplay = eventEl.querySelector('.event-date-display');
-        if (dateDisplay) {
-            dateDisplay.textContent = eventDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-        }
+    if (dateDisplay) {
+      if (eventEl.dataset.isCta === 'true') {
+        dateDisplay.textContent = 'Date TBA';
+      } else {
+        dateDisplay.textContent = eventDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+      }
+    }
 
         if (eventDate >= now) {
             upcomingEvents.push(eventEl);
@@ -145,10 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
         eventEl.classList.remove('border-outline-variant');
         eventEl.classList.add('border-sunset-orange');
         eventEl.querySelector('.event-date-display').classList.add('text-sunset-orange');
-        if (index === 0) {
-            eventEl.querySelector('.event-badge').classList.remove('hidden');
-        }
-        upcomingContainer.appendChild(eventEl);
+    if (index === 0 && eventEl.dataset.isCta !== 'true') {
+      eventEl.querySelector('.event-badge').classList.remove('hidden');
+    }
+    upcomingContainer.appendChild(eventEl);
     });
 
     pastEvents.forEach((eventEl, index) => {

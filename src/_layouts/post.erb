@@ -1,7 +1,35 @@
 ---
 layout: default
 ---
-
-<h1><%= data.title %></h1>
-
-<%= yield %>
+<div class="max-w-3xl mx-auto px-margin-mobile lg:px-margin-desktop py-24 min-h-screen">
+  <div class="mb-12 border-b border-outline-variant pb-12">
+    <% if data.is_cta %>
+      <span class="font-label-mono text-label-mono text-sunset-orange uppercase tracking-[0.2em] mb-4 block">Call for Speakers</span>
+    <% else %>
+      <span class="font-label-mono text-label-mono text-secondary uppercase tracking-[0.2em] mb-4 block">
+        Event Date: <%= data.event_date %>
+      </span>
+    <% end %>
+    
+    <h1 class="font-display-lg text-[48px] leading-tight text-deep-purple mb-8"><%= data.title %></h1>
+    
+    <div class="flex gap-4">
+      <% if data.is_cta %>
+        <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-primary-container transition-all shadow-lg inline-block">Contact Us</a>
+      <% else %>
+        <a href="<%= data.meetup_link || 'https://www.meetup.com/ruby-az/' %>" target="_blank" class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-sunset-orange transition-all shadow-lg inline-block">RSVP on Meetup</a>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="prose prose-lg prose-p:font-body-md prose-ul:font-body-md prose-ol:font-body-md prose-headings:font-headline-lg text-on-surface-variant text-lg leading-relaxed max-w-none">
+    <%= yield %>
+  </div>
+  
+  <div class="mt-16 pt-8 border-t border-outline-variant">
+    <a href="/" class="font-label-mono text-label-mono text-primary hover:text-secondary transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Back to Home
+    </a>
+  </div>
+</div>

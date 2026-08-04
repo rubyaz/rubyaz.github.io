@@ -3,6 +3,7 @@ layout: post
 title: "Deploying with Kamal, Day 2"
 event_date: "2026-07-23"
 tags: ["meetup", "devops"]
+meetup_link: "https://www.meetup.com/ruby-az/events/315764960/"
 ---
 This month we have Marc Heiligers presenting on Deploying with Kamal, Day 2.
 
