@@ -22,9 +22,9 @@ But what about Day 2 and beyond?
 * How do we know when Sidekiq runs out of memory?
 * Is SSH really secure on a public port?
 
-<div class="my-12 text-center">
-  <a href="/slides/kamal-day-2/index.html" target="_blank" class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-mono text-lg shadow-xl hover:bg-primary-container hover:scale-105 transition-all inline-flex items-center gap-2">
-    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+<div style="text-align: center; margin: 3rem 0;">
+  <a href="/slides/kamal-day-2/index.html" target="_blank" class="btn--primary-alt" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.125rem; padding: 1rem 2rem;">
+    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 1.5rem; height: 1.5rem;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
     View Slides
   </a>
 </div>

@@ -1,34 +1,34 @@
 ---
 layout: default
 ---
-<div class="max-w-3xl mx-auto px-margin-mobile lg:px-margin-desktop py-24 min-h-screen">
-  <div class="mb-12 border-b border-outline-variant pb-12">
+<div class="post-layout">
+  <div class="post-header">
     <% if data.is_cta %>
-      <span class="font-label-mono text-label-mono text-sunset-orange uppercase tracking-[0.2em] mb-4 block">Call for Speakers</span>
+      <span class="post-badge cta">Call for Speakers</span>
     <% else %>
-      <span class="font-label-mono text-label-mono text-secondary uppercase tracking-[0.2em] mb-4 block">
+      <span class="post-badge event">
         Event Date: <%= data.event_date %>
       </span>
     <% end %>
     
-    <h1 class="font-display-lg text-[48px] leading-tight text-deep-purple mb-8"><%= data.title %></h1>
+    <h1 class="post-title"><%= data.title %></h1>
     
-    <div class="flex gap-4">
+    <div class="post-actions">
       <% if data.is_cta %>
-        <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-primary-container transition-all shadow-lg inline-block">Contact Us</a>
+        <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="btn--primary-alt">Contact Us</a>
       <% else %>
-        <a href="<%= data.meetup_link || 'https://www.meetup.com/ruby-az/' %>" target="_blank" class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-sunset-orange transition-all shadow-lg inline-block">RSVP on Meetup</a>
+        <a href="<%= data.meetup_link || 'https://www.meetup.com/ruby-az/' %>" target="_blank" class="btn--secondary">RSVP on Meetup</a>
       <% end %>
     </div>
   </div>
   
-  <div class="prose prose-lg prose-p:font-body-md prose-ul:font-body-md prose-ol:font-body-md prose-headings:font-headline-lg text-on-surface-variant text-lg leading-relaxed max-w-none">
+  <div class="post-content">
     <%= yield %>
   </div>
   
-  <div class="mt-16 pt-8 border-t border-outline-variant">
-    <a href="/" class="inline-flex items-center gap-2 text-primary font-label-mono hover:text-secondary transition-colors group mb-8">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 transition-transform group-hover:-translate-x-1"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+  <div class="post-footer">
+    <a href="/" class="post-back-link">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
       <span>Back to Home</span>
     </a>
   </div>

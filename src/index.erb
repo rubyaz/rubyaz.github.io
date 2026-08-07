@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-<div class="flex flex-col w-full">
+<div class="index-layout">
     <!-- Interactive Background Element -->
-    <div class="fixed inset-0 pointer-events-none z-0 opacity-20 overflow-hidden">
-        <svg class="absolute -top-1/4 -right-1/4 w-[800px] h-[800px]" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+    <div class="interactive-bg">
+        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
             <circle cx="500" cy="500" fill="url(#sunset-grad)" r="400"></circle>
             <defs>
                 <radialGradient id="sunset-grad">
@@ -15,21 +15,21 @@ layout: default
         </svg>
     </div>
     <!-- Header Section -->
-    <section class="relative z-10 px-margin-mobile lg:px-margin-desktop py-16 lg:py-24 max-w-container-max mx-auto w-full text-center">
-        <img src="/images/logo_hero.webp" alt="RubyAZ Hero Logo" class="mx-auto h-48 md:h-64 w-auto object-contain mb-8 hover:scale-105 transition-transform duration-500 drop-shadow-xl rounded-2xl">
-        <h1 class="font-display-lg text-[64px] leading-tight text-deep-purple mb-6">
-            Arizona <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-sunset-orange">Ruby</span> Users Group
+    <section class="hero">
+        <img src="/images/logo_hero.webp" alt="RubyAZ Hero Logo" class="hero-img">
+        <h1 class="hero-title">
+            Arizona <span class="hero-title-highlight">Ruby</span> Users Group
         </h1>
-        <p class="font-body-md text-on-surface-variant max-w-2xl mx-auto text-xl mb-12">
+        <p class="hero-subtitle">
             Join us in the Valley of the Sun for discussions, presentations, and networking around the Ruby programming language and its ecosystem.
         </p>
-        <div class="mt-8 flex justify-center flex-wrap items-center gap-4">
-            <a href="#upcoming-events" class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-primary-container transition-all shadow-lg">View Upcoming Events</a>
-            <a href="https://www.meetup.com/ruby-az/" target="_blank" class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-mono text-label-mono hover:bg-sunset-orange transition-all shadow-lg">Join us on Meetup</a>
-            <a href="https://ruby.social/@Ruby_AZ" target="_blank" rel="me" class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant hover:text-secondary transition-all border border-outline-variant" title="Mastodon">
+        <div class="hero-actions">
+            <a href="#upcoming-events" class="btn--primary-alt">View Upcoming Events</a>
+            <a href="https://www.meetup.com/ruby-az/" target="_blank" class="btn--secondary">Join us on Meetup</a>
+            <a href="https://ruby.social/@Ruby_AZ" target="_blank" rel="me" class="btn--icon" title="Mastodon">
                 <svg viewBox="0 0 448 512" fill="currentColor" class="w-5 h-5"><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
             </a>
-            <a href="https://bsky.app/profile/rubyza.bsky.social" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant hover:text-secondary transition-all border border-outline-variant" title="Bluesky">
+            <a href="https://bsky.app/profile/rubyza.bsky.social" target="_blank" class="btn--icon" title="Bluesky">
               <svg viewBox="0 0 568 501" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
               <path d="M123.121 33.6637C188.241 82.5526 258.281 181.681 284 234.873C309.719 181.681 379.759 82.5526 444.879 33.6637C491.866 -1.61183 568 -28.9064 568 57.9464C568 75.2916 558.055 203.659 552.222 224.501C531.947 296.954 458.067 315.434 392.347 304.249C507.222 323.8 536.444 388.56 473.333 453.32C353.473 576.312 301.061 422.461 287.631 383.039C285.169 375.812 284.017 372.431 284 375.306C283.983 372.431 282.831 375.812 280.369 383.039C266.939 422.461 214.527 576.312 94.6667 453.32C31.5556 388.56 60.7778 323.8 175.653 304.249C109.933 315.434 36.0535 296.954 15.7778 224.501C9.94525 203.659 0 75.2916 0 57.9464C0 -28.9064 76.1345 -1.61183 123.121 33.6637Z" fill="currentColor"/>
               </svg>
@@ -37,43 +37,43 @@ layout: default
         </div>
     </section>
     <!-- Upcoming Events -->
-    <section id="upcoming-events" class="relative z-10 bg-surface-container-low/50 py-24 border-t border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop w-full">
-            <div class="flex items-center justify-between mb-12">
-                <h3 class="font-headline-lg text-headline-lg text-on-surface">Upcoming Events</h3>
+    <section id="upcoming-events" class="section-events">
+        <div class="section-container">
+            <div class="section-header">
+                <h3 class="section-title">Upcoming Events</h3>
             </div>
-            <div id="upcoming-events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="upcoming-events-container" class="events-grid">
                 <!-- JavaScript will inject upcoming events here -->
             </div>
         </div>
     </section>
     <!-- Sponsors -->
-    <section id="sponsors" class="relative z-10 px-margin-mobile lg:px-margin-desktop py-24 max-w-container-max mx-auto w-full">
-        <div class="text-center mb-16">
-            <h3 class="font-headline-lg text-headline-lg text-deep-purple mb-4">Our Generous Supporters</h3>
-            <p class="text-on-surface-variant text-lg">Thank you to the individuals and organizations that make Ruby::AZ possible.</p>
+    <section id="sponsors" class="section-sponsors">
+        <div class="sponsors-header">
+            <h3 class="sponsors-title">Our Generous Supporters</h3>
+            <p class="sponsors-subtitle">Thank you to the individuals and organizations that make Ruby::AZ possible.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div class="bg-surface-container-low p-8 rounded-2xl shadow-sm">
-                <div class="bg-primary-container p-4 rounded-xl shrink-0 mx-auto w-16 h-16 flex items-center justify-center mb-6">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-on-primary-container"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+        <div class="sponsors-grid">
+            <div class="sponsor-card">
+                <div class="sponsor-icon-wrapper venue">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
                 </div>
-                <h4 class="font-headline-lg text-xl text-deep-purple mb-2">Venue</h4>
-                <p class="text-on-surface-variant font-body-md"><a href="https://heatsynclabs.org">Heatsync Labs</a></p>
+                <h4 class="sponsor-title">Venue</h4>
+                <p class="sponsor-desc"><a href="https://heatsynclabs.org">Heatsync Labs</a></p>
             </div>
-            <div class="bg-surface-container-low p-8 rounded-2xl shadow-sm">
-                <div class="bg-secondary-container p-4 rounded-xl shrink-0 mx-auto w-16 h-16 flex items-center justify-center mb-6">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-on-secondary-container"><path d="M12 2C8.43 2 5.23 3.54 3.01 6L12 22l8.99-16C18.78 3.55 15.57 2 12 2zM7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm5 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+            <div class="sponsor-card">
+                <div class="sponsor-icon-wrapper food">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.43 2 5.23 3.54 3.01 6L12 22l8.99-16C18.78 3.55 15.57 2 12 2zM7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm5 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
                 </div>
-                <h4 class="font-headline-lg text-xl text-deep-purple mb-2">Food & Drinks</h4>
-                <p class="text-on-surface-variant font-body-md"><a href="https://velocitylabs.io/">Velocity Labs</a></p>
+                <h4 class="sponsor-title">Food & Drinks</h4>
+                <p class="sponsor-desc"><a href="https://velocitylabs.io/">Velocity Labs</a></p>
             </div>
-            <div class="bg-surface-container-low p-8 rounded-2xl shadow-sm">
-                <div class="bg-tertiary-container p-4 rounded-xl shrink-0 mx-auto w-16 h-16 flex items-center justify-center mb-6">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-on-tertiary-container"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <div class="sponsor-card">
+                <div class="sponsor-icon-wrapper organizers">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                 </div>
-                <h4 class="font-headline-lg text-xl text-deep-purple mb-2">Organizers</h4>
-                <p class="text-on-surface-variant font-body-md">
+                <h4 class="sponsor-title">Organizers</h4>
+                <p class="sponsor-desc">
                   Chris Irish,
                   Marc Heiligers, &amp;
                   Brian Sam-Bodden
@@ -82,12 +82,12 @@ layout: default
         </div>
     </section>
     <!-- Past Events -->
-    <section id="past-events" class="relative z-10 bg-surface-container-low/50 py-24 border-t border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop w-full">
-            <div class="flex items-center justify-between mb-12">
-                <h3 class="font-headline-lg text-headline-lg text-on-surface">Past Events</h3>
+    <section id="past-events" class="section-events">
+        <div class="section-container">
+            <div class="section-header">
+                <h3 class="section-title">Past Events</h3>
             </div>
-            <div id="past-events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="past-events-container" class="events-grid">
                 <!-- JavaScript will inject past events here -->
             </div>
         </div>
@@ -96,25 +96,25 @@ layout: default
 <!-- Hidden raw events rendered by Bridgetown -->
 <div id="raw-events" class="hidden">
   <% collections.posts.resources.select { |p| p.data.tags&.include?('meetup') }.each do |post| %>
-    <div class="meetup-event group flex flex-col bg-surface rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-outline-variant overflow-hidden relative" data-event-date="<%= post.data.event_date %>" data-is-cta="<%= post.data.is_cta %>">
-        <div class="event-badge hidden absolute top-4 right-4 bg-sunset-orange text-white text-xs font-bold px-2 py-1 rounded">NEXT</div>
-        <div class="p-8 flex flex-col h-full">
-            <div class="flex justify-between items-start mb-6">
-                <div class="flex items-center gap-2">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-outline group-hover:text-secondary transition-colors"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
-                    <time class="font-label-mono text-on-surface-variant event-date-display group-hover:text-secondary transition-colors"><%= post.data.event_date %></time>
+    <div class="meetup-event group" data-event-date="<%= post.data.event_date %>" data-is-cta="<%= post.data.is_cta %>">
+        <div class="event-badge hidden">NEXT</div>
+        <div class="event-content">
+            <div class="event-meta">
+                <div class="event-date-group">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+                    <time class="event-date-display"><%= post.data.event_date %></time>
                 </div>
             </div>
-            <a href="<%= post.relative_url %>" class="hover:text-secondary transition-colors">
-                <h4 class="font-headline-lg text-[22px] text-deep-purple mb-4 group-hover:translate-x-1 transition-transform"><%= post.data.title %></h4>
+            <a href="<%= post.relative_url %>" class="event-title-link">
+                <h4 class="event-title"><%= post.data.title %></h4>
             </a>
-        <div class="font-body-md text-on-surface-variant mb-6 line-clamp-3">
+        <div class="event-desc">
           <%= post.content %>
         </div>
         <% if post.data.is_cta %>
-          <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="event-rsvp mt-auto bg-surface-container text-center text-primary font-bold py-2 rounded hover:bg-primary hover:text-white transition-colors block">Contact Us</a>
+          <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="event-rsvp">Contact Us</a>
         <% else %>
-          <a href="<%= post.data.meetup_link || 'https://www.meetup.com/ruby-az/' %>" target="_blank" class="event-rsvp mt-auto bg-surface-container text-center text-primary font-bold py-2 rounded hover:bg-primary hover:text-white transition-colors block">RSVP on Meetup</a>
+          <a href="<%= post.data.meetup_link || 'https://www.meetup.com/ruby-az/' %>" target="_blank" class="event-rsvp">RSVP on Meetup</a>
         <% end %>
       </div>
     </div>
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         eventEl.classList.add('border-sunset-orange');
         eventEl.querySelector('.event-date-display').classList.add('text-sunset-orange');
     if (index === 0 && eventEl.dataset.isCta !== 'true') {
-      eventEl.querySelector('.event-badge').classList.remove('hidden');
+      eventEl.querySelector('.event-badge').classList.add('active');
     }
     upcomingContainer.appendChild(eventEl);
     });
