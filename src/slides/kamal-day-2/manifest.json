@@ -1,0 +1,22 @@
+{
+	"app/main.rb" : { "filesize" : 9615, "filetime" : 1786137284 },
+	"app/text.rb" : { "filesize" : 664, "filetime" : 1786137284 },
+	"app/slides.rb" : { "filesize" : 23105, "filetime" : 1786137284 },
+	"app/code.rb" : { "filesize" : 2103, "filetime" : 1786137284 },
+	"app/repl.rb" : { "filesize" : 9189, "filetime" : 1786137284 },
+	"app/deck.rb" : { "filesize" : 2259, "filetime" : 1786137284 },
+	"app/image_frame.rb" : { "filesize" : 474, "filetime" : 1786137284 },
+	"app/slide.rb" : { "filesize" : 8512, "filetime" : 1786137284 },
+	"font.ttf" : { "filesize" : 3438444, "filetime" : 1786137284 },
+	"README-kamal-talk.txt" : { "filesize" : 70, "filetime" : 1786137284 },
+	"open-source-licenses.txt" : { "filesize" : 37704, "filetime" : 1786137284 },
+	"sprites/qr-code-1784857084800.png" : { "filesize" : 14380, "filetime" : 1786137284 },
+	"sprites/raoul-droog-yMSecCHsIBc-unsplash.jpg" : { "filesize" : 3169197, "filetime" : 1786137284 },
+	"metadata/icon.png" : { "filesize" : 157056, "filetime" : 1786137284 },
+	"metadata/dragonruby_production_build" : { "filesize" : 0, "filetime" : 1786137284 },
+	"metadata/game_metadata.txt" : { "filesize" : 7003, "filetime" : 1786137284 },
+	"dragonruby.png" : { "filesize" : 14417, "filetime" : 1786137284 },
+	"dragonruby-controller.png" : { "filesize" : 32688, "filetime" : 1786137284 },
+	"console-logo.png" : { "filesize" : 25034, "filetime" : 1786137284 },
+	"" : {}
+}
