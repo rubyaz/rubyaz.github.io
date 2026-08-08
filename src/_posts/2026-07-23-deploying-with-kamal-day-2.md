@@ -4,6 +4,8 @@ title: "Deploying with Kamal, Day 2"
 event_date: "2026-07-23"
 tags: ["meetup", "devops"]
 meetup_link: "https://www.meetup.com/ruby-az/events/315764960/"
+mastodon_post_url: "https://ruby.social/@Ruby_AZ/117057342906555846"
+bluesky_post_url: "https://bsky.app/profile/rubyaz.bsky.social/post/3msjwwpcf322r"
 ---
 
 ## Talks
