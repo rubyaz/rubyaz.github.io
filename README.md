@@ -74,6 +74,9 @@ This launches an interactive wizard that lets you:
 **Threaded Replies**: 
 The first time you publish an event, `bin/event publish` will save the generated Mastodon and Bluesky URLs directly into the post's markdown front matter. If you run `bin/event publish` again for the *same* event (e.g. to send a Reminder or Post-Event recap), it will automatically fetch those URLs and post your new updates as **threaded replies** to the original post on both platforms!
 
+### Troubleshooting Social Publishing
+- **"Failed to retrieve Mastodon/Bluesky token from 1Password"**: This usually means your terminal session's 1Password CLI authentication has timed out or is pointed at the wrong account. Run `op signin` in your terminal to unlock the CLI, and try again!
+
 ## Deployment
 
 You can deploy Bridgetown sites on hosts like statichost.eu and Render as well as traditional web servers by simply building and copying the output folder to your HTML root.

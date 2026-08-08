@@ -6,8 +6,8 @@ require "uri"
 
 class BlueskyPublisher < Publisher
   # TODO: Fill in these 1Password reference URIs
-  OP_HANDLE = "op://Ruby::AZ/Ruby::AZ Bluesky/Handle"
-  OP_APP_PASSWORD = "op://Private/Ruby::AZ Bluesky/App_Password"
+  OP_HANDLE = "op://kfwlipdix57khyxqu75jssdpbq/ye56thdtqjc55kmgnouoiemwiq/API/Handle"
+  OP_APP_PASSWORD = "op://kfwlipdix57khyxqu75jssdpbq/ye56thdtqjc55kmgnouoiemwiq/API/App_Password"
   API = "https://bsky.social"
 
   def name = "Bluesky"
@@ -31,7 +31,7 @@ class BlueskyPublisher < Publisher
       "createdAt" => Time.now.utc.strftime("%Y-%m-%dT%H:%M:%S.%3NZ"),
     }
     record["facets"] = facets unless facets.empty?
-    
+
     if reply_to
       cid = fetch_cid(session, reply_to)
       if cid
@@ -121,15 +121,15 @@ class BlueskyPublisher < Publisher
     repo = parts[0]
     collection = parts[1]
     rkey = parts[2]
-    
+
     get_uri = URI("#{API}/xrpc/com.atproto.repo.getRecord?repo=#{repo}&collection=#{collection}&rkey=#{rkey}")
     req = Net::HTTP::Get.new(get_uri)
     req["Authorization"] = "Bearer #{session[:access_jwt]}"
-    
+
     http = Net::HTTP.new(get_uri.host, get_uri.port)
     http.use_ssl = true
     res = http.request(req)
-    
+
     return nil unless res.is_a?(Net::HTTPSuccess)
     JSON.parse(res.body)["cid"]
   end

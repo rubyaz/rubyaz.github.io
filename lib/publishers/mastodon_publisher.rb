@@ -6,7 +6,7 @@ require "uri"
 
 class MastodonPublisher < Publisher
   # TODO: Fill in these 1Password reference URIs
-  OP_TOKEN = "op://Ruby::AZ/Ruby::AZ Mastodon/Access_Token"
+  OP_TOKEN = "op://kfwlipdix57khyxqu75jssdpbq/db7ybuqiegezwyx3wevc6ymj4u/API/Access_Token"
   INSTANCE = "https://ruby.social"
 
   def name = "Mastodon"
@@ -22,7 +22,7 @@ class MastodonPublisher < Publisher
 
     request = Net::HTTP::Post.new(uri)
     request["Authorization"] = "Bearer #{token}"
-    
+
     if reply_to && reply_to.include?("/")
       reply_to = reply_to.split("/").last
     end

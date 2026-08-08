@@ -19,6 +19,8 @@ class Publisher
   def fetch_op_secret(op_path)
     output = `op read "#{op_path}" 2>&1`
     return output.strip if $?.success?
+    
+    puts "\n[1Password Error]: #{output.strip}"
     nil
   end
 end
