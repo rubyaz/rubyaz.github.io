@@ -3,6 +3,14 @@
 
 require "date"
 require "fileutils"
+require_relative "../lib/publishers/publisher"
+require_relative "../lib/publishers/mastodon_publisher"
+require_relative "../lib/publishers/bluesky_publisher"
+
+PUBLISHERS = [
+  MastodonPublisher.new,
+  BlueskyPublisher.new
+].freeze
 
 def usage
   puts <<~USAGE
@@ -63,25 +71,144 @@ def cmd_new(args)
   puts "Created new event post at #{filename}"
 end
 
+def parse_front_matter(content)
+  match = content.match(/\A---\n(.*?\n)---\n(.*)\z/m)
+  return [{}, content] unless match
+  fm = {}
+  match[1].each_line do |line|
+    if line =~ /\A(\w[\w_]*):\s*(.*)\s*\z/
+      key = $1
+      val = $2.strip
+      val = val[1..-2] if val.start_with?('"') && val.end_with?('"')
+      fm[key] = val
+    end
+  end
+  [fm, match[2]]
+end
+
+def update_front_matter_field(content, key, value)
+  if content =~ /^#{Regexp.escape(key)}:/
+    content.sub(/^#{Regexp.escape(key)}:.*$/, "#{key}: \"#{value}\"")
+  else
+    content.sub(/\A(---\n.*?)^(---\n)/m, "\\1#{key}: \"#{value}\"\n\\2")
+  end
+end
+
 def cmd_publish(args)
-  puts "Staging changes..."
-  unless system("git add src/_posts/")
-    puts "Failed to add changes to git."
+  require "readline"
+  
+  posts = Dir.glob("src/_posts/*.md").map do |path|
+    content = File.read(path)
+    fm, _ = parse_front_matter(content)
+    { path: path, fm: fm, content: content }
+  end
+
+  posts.sort_by! { |p| p[:fm]["event_date"] || File.basename(p[:path]) }.reverse!
+
+  puts "Select an event to post about:"
+  posts.each_with_index do |p, i|
+    published = p[:fm]["mastodon_post_url"] ? "[Published]" : "[Unpublished]"
+    puts "  #{i + 1}) #{p[:fm]['event_date']} - #{p[:fm]['title']} #{published}"
+  end
+  print "Choice: "
+  choice = $stdin.gets.strip.to_i
+  if choice < 1 || choice > posts.length
+    puts "Invalid choice."
+    exit 1
+  end
+  
+  selected = posts[choice - 1]
+  
+  title = selected[:fm]["title"]
+  date = selected[:fm]["event_date"]
+  basename = File.basename(selected[:path], ".md")
+  if basename =~ /^(\d{4})-(\d{2})-(\d{2})-(.+)$/
+    website_url = "https://rubyaz.org/#{$1}/#{$2}/#{$3}/#{$4}/"
+  else
+    website_url = "https://rubyaz.org/"
+  end
+  
+  puts "\nSelect post type:"
+  puts "  1) Original (Announce the event)"
+  puts "  2) Reminder (A few days before)"
+  puts "  3) Post-Event (Thanks and recap)"
+  print "Choice: "
+  type_choice = $stdin.gets.strip
+  
+  case type_choice
+  when "1"
+    default_text = "Join us for #{title} on #{date}!\n\nRSVP & Details: #{website_url}\n\n#ruby #rubyaz"
+  when "2"
+    default_text = "Reminder! We're meeting for #{title} on #{date}.\n\nSee you there: #{website_url}\n\n#ruby #rubyaz"
+  when "3"
+    default_text = "Thanks to everyone who joined us for #{title}!\n\nCheck out the slides and recap: #{website_url}\n\n#ruby #rubyaz"
+  else
+    puts "Invalid choice."
     exit 1
   end
 
-  puts "Committing changes..."
-  unless system("git commit -m 'Add new event post'")
-    puts "No new changes to commit, or commit failed."
+  # Replace escaped newlines so they render correctly in Readline
+  default_text = default_text.gsub('\\n', "\n")
+
+  puts "\nEdit your post text (press Enter to accept):"
+  
+  Readline.pre_input_hook = -> {
+    Readline.insert_text(default_text)
+    Readline.redisplay
+    Readline.pre_input_hook = nil
+  }
+  
+  final_text = Readline.readline("> ", false)
+  
+  puts "\nFinal Text:"
+  puts "---"
+  puts final_text
+  puts "---"
+  print "Publish this? (y/n): "
+  unless $stdin.gets.strip.downcase == 'y'
+    puts "Aborted."
+    exit 0
+  end
+  
+  updates_made = false
+  new_content = selected[:content]
+
+  PUBLISHERS.each do |publisher|
+    existing_url = selected[:fm][publisher.front_matter_key]
+    reply_to = existing_url && !existing_url.empty? ? existing_url : nil
+    
+    if reply_to
+      puts "Posting to #{publisher.name} as a reply to #{reply_to}..."
+    else
+      puts "Posting to #{publisher.name}..."
+    end
+    
+    result = publisher.post(final_text, reply_to: reply_to)
+    
+    if result[:error]
+      puts "FAILED"
+      puts "  #{result[:error]}"
+    else
+      puts "OK"
+      puts "  #{result[:url]}"
+      unless reply_to
+        new_content = update_front_matter_field(new_content, publisher.front_matter_key, result[:url])
+        updates_made = true
+      end
+    end
   end
 
-  puts "Pushing to remote to trigger deployment..."
-  unless system("git push")
-    puts "Failed to push to remote."
-    exit 1
+  if updates_made
+    File.write(selected[:path], new_content)
+    puts "\nStaging changes..."
+    system("git add src/_posts/")
+    puts "Committing changes..."
+    system("git commit -m 'Add social URLs to #{basename}'")
+    puts "Pushing to remote to trigger deployment..."
+    system("git push")
   end
-
-  puts "Successfully published events!"
+  
+  puts "Done!"
 end
 
 case ARGV[0]

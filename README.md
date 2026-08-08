@@ -51,6 +51,29 @@ bin/bridgetown console
 
 > Learn more: [Bridgetown CLI Documentation](https://www.bridgetownrb.com/docs/command-line-usage)
 
+## Managing Events & Social Media
+
+We use a custom CLI script (`bin/event`) to manage meetup posts and automatically publish them to our social media channels (Mastodon and Bluesky).
+
+**1. Create a new event**
+```sh
+bin/event new 2026-08-20 "Intro to Hotwire"
+```
+This generates a new markdown post in `src/_posts/` with the correct boilerplate front matter. You can then edit the file to add details like the `meetup_link`.
+
+**2. Publish and announce on social media**
+```sh
+bin/event publish
+```
+This launches an interactive wizard that lets you:
+- Select an event from a reverse-chronological list of all posts.
+- Choose a post template (Original Announcement, Reminder, or Post-Event Recap).
+- Edit the social media post text inline.
+- Automatically publish the post to **Mastodon** and **Bluesky** using credentials stored in 1Password.
+
+**Threaded Replies**: 
+The first time you publish an event, `bin/event publish` will save the generated Mastodon and Bluesky URLs directly into the post's markdown front matter. If you run `bin/event publish` again for the *same* event (e.g. to send a Reminder or Post-Event recap), it will automatically fetch those URLs and post your new updates as **threaded replies** to the original post on both platforms!
+
 ## Deployment
 
 You can deploy Bridgetown sites on hosts like statichost.eu and Render as well as traditional web servers by simply building and copying the output folder to your HTML root.
