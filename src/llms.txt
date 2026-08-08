@@ -1,0 +1,27 @@
+---
+permalink: /llms.txt
+sitemap: false
+---
+# Ruby::AZ
+
+> The Arizona Ruby Users Group. Join us in the Valley of the Sun for discussions, presentations, and networking around the Ruby programming language and its ecosystem.
+
+Ruby::AZ is a community of Ruby developers based in Arizona. We meet to discuss Ruby, Rails, and related technologies, share knowledge, and build connections.
+
+## Events
+
+We host regular meetups. Our past and upcoming events cover a wide range of topics, from beginner tutorials to advanced deployment strategies.
+
+All events are posted on this website and on our social media channels.
+
+## Links & Socials
+
+- **Website**: [rubyaz.org](https://rubyaz.org)
+- **Meetup**: [Join us on Meetup](https://www.meetup.com/ruby-az/)
+- **Mastodon**: [@Ruby_AZ](https://ruby.social/@Ruby_AZ)
+- **Bluesky**: [@rubyza.bsky.social](https://bsky.app/profile/rubyza.bsky.social)
+- **RSS Feed**: [Feed](/feed.xml)
+
+## Organizers
+
+Chris Irish, Marc Heiligers, & Brian Sam-Bodden

@@ -15,8 +15,10 @@
 # handles, etc., take a look at `src/_data/site_metadata.yml`
 
 Bridgetown.configure do |config|
+  init :"bridgetown-sitemap"
+
   # The base hostname & protocol for your site, e.g. https://example.com
-  url ""
+  url "https://rubyaz.org"
 
   # Available options are `erb` (default), `serbea`, or `liquid`
   template_engine "erb"

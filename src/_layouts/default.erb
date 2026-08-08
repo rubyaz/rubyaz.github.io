@@ -4,7 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Ruby::AZ</title>
+    <title><%= resource.data.title ? "#{resource.data.title} | Ruby::AZ" : "Ruby::AZ" %></title>
+    <meta name="description" content="<%= site.metadata.description %>">
+    
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="<%= resource.data.title || 'Ruby::AZ' %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= absolute_url(resource.relative_url) %>">
+    <meta property="og:image" content="<%= absolute_url('/images/logo.webp') %>">
+    <meta property="og:description" content="<%= site.metadata.description %>">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Ruby_AZ">
+    <meta name="twitter:title" content="<%= resource.data.title || 'Ruby::AZ' %>">
+    <meta name="twitter:description" content="<%= site.metadata.description %>">
+    <meta name="twitter:image" content="<%= absolute_url('/images/logo.webp') %>">
     <style>
         @font-face {
           font-family: 'Peralta';
