@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Lightning Talks"
+event_date: "2026-08-27"
+tags: ["meetup"]
+meetup_link: "https://www.meetup.com/ruby-az/events/316104126/"
+---
+
+This month we're going to have a series of **Lightning Talks**!
+
+## Talks
+
+We have a few speakers lined up, but if you want to present, hit the button below.
+
+* TBD - Chris Irish
+* TBD - Malak Janus
+* _Understanding Rack Without the Framework Magic_ - Marc Heiligers
+
+<a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="btn--primary-alt">Want to present?</a>
+
+## Venue
+
+CO+HOOTS, Mesa
+225 E Main St (Suite 201), 85201
+
+## Links
+
+* [Photo by j_arred](https://www.flickr.com/photos/30395273@N02/6074735344/in/photostream/), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
