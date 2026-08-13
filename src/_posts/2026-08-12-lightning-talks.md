@@ -4,6 +4,8 @@ title: "Lightning Talks"
 event_date: "2026-08-27"
 tags: ["meetup"]
 meetup_link: "https://www.meetup.com/ruby-az/events/316104126/"
+mastodon_post_url: "https://ruby.social/@Ruby_AZ/117089776265552458"
+bluesky_post_url: "https://bsky.app/profile/rubyaz.bsky.social/post/3msydtoowyk2y"
 ---
 
 This month we're going to have a series of **Lightning Talks**!
