@@ -16,7 +16,7 @@ This month we're going to have a series of **Lightning Talks**!
 
 We have a few speakers lined up, but if you want to present, hit the button below.
 
-* TBD - Chris Irish
+* _How to Leverage AI for Developer Productivity_ - Chris Irish
 * TBD - Malak Janus
 * _Understanding Rack Without the Framework Magic_ - Marc Heiligers
 
