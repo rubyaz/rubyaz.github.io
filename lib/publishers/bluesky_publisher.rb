@@ -14,6 +14,8 @@ class BlueskyPublisher < Publisher
   def front_matter_key = "bluesky_post_url"
 
   def post(text, reply_to: nil)
+    text = smart_truncate(text)
+    
     handle = fetch_op_secret(OP_HANDLE)
     return { error: "Failed to retrieve Bluesky handle from 1Password at #{OP_HANDLE}" } unless handle
 
@@ -61,6 +63,42 @@ class BlueskyPublisher < Publisher
   end
 
   private
+
+  def smart_truncate(text, limit = 300)
+    return text if text.grapheme_clusters.length <= limit
+
+    lines = text.lines
+    footer_start = lines.size
+    
+    # Identify footer: from the bottom up, collect lines that are empty, contain a URL, or contain a hashtag
+    lines.reverse.each_with_index do |line, i|
+      if line.strip.empty? || line.match?(/https?:\/\//) || line.match?(/(?<=\s|^)#\w+/)
+        footer_start = lines.size - 1 - i
+      else
+        break
+      end
+    end
+
+    footer_start = lines.size - 1 if footer_start == 0
+
+    header_and_body = lines[0...footer_start].join
+    footer = lines[footer_start..-1].join
+    clean_footer = footer.strip
+
+    if clean_footer.empty?
+      return text.grapheme_clusters.take(limit - 1).join.strip + "…"
+    end
+
+    # We add "…\n\n" between body and footer, which is 3 graphemes
+    allowed_len = limit - clean_footer.grapheme_clusters.length - 3
+    
+    if allowed_len <= 0
+      return text.grapheme_clusters.take(limit - 1).join.strip + "…"
+    end
+
+    truncated_body = header_and_body.grapheme_clusters.take(allowed_len).join.strip
+    "#{truncated_body}…\n\n#{clean_footer}"
+  end
 
   def create_session(handle, app_password)
     uri = URI("#{API}/xrpc/com.atproto.server.createSession")

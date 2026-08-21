@@ -147,28 +147,44 @@ def cmd_publish(args)
     exit 1
   end
 
-  # Replace escaped newlines so they render correctly in Readline
+  # Replace escaped newlines so they render correctly
   default_text = default_text.gsub('\\n', "\n")
 
-  puts "\nEdit your post text (press Enter to accept):"
+  puts "\nOpening your editor to tweak the post text..."
+  require "tempfile"
 
-  Readline.pre_input_hook = -> {
-    Readline.insert_text(default_text)
-    Readline.redisplay
-    Readline.pre_input_hook = nil
-  }
+  file = Tempfile.new(["social_post", ".md"])
+  file.write(default_text)
+  file.close
 
-  final_text = Readline.readline("> ", false)
+  editor = ENV['EDITOR'] || 'nano'
+  final_text = ""
 
-  puts "\nFinal Text:"
-  puts "---"
-  puts final_text
-  puts "---"
-  print "Publish this? (y/n): "
-  unless $stdin.gets.strip.downcase == 'y'
-    puts "Aborted."
-    exit 0
+  loop do
+    system("#{editor} #{file.path}")
+    final_text = File.read(file.path).strip
+
+    puts "\nFinal Text:"
+    puts "---"
+    puts final_text
+    puts "---"
+    print "Publish this? (y)es/(N)o/(e)dit: "
+
+    answer = $stdin.gets.strip.downcase
+
+    if answer == 'y' || answer == 'yes'
+      break
+    elsif answer == 'e' || answer == 'edit'
+      puts "\nReopening editor..."
+      next
+    else
+      puts "Aborted."
+      file.unlink
+      exit 0
+    end
   end
+
+  file.unlink
 
   updates_made = false
   new_content = selected[:content]
