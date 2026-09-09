@@ -14,19 +14,25 @@ This month we're going to have a series of **Lightning Talks**!
 
 ## Talks
 
-We have a few speakers lined up, but if you want to present, hit the button below.
+We had three talks which resulted in a lot of discussion and questions.
 
-* _How to Leverage AI for Developer Productivity_ - Chris Irish
-* TBD - Malak Janus
-* _Understanding Rack Without the Framework Magic_ - Marc Heiligers
+* _How to Leverage AI for Developer Productivity_ (Slides coming soon) - Chris Irish
+* [_A Good Day To Open The Business_](https://nextcloud.tea-tavern.com/s/MSZBPAekxBsQTYo?dir=/&editing=false&openfile=true) - Tavern Keeper Robin
+* [_Understanding Rack Without the Framework Magic_](https://fascination.works/ruby/2026/08/12/understanding-rack-without-the-framework-magic/) - Marc Heiligers
 
-<a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="btn--primary-alt">Want to present?</a>
+<img src="/images/2026-08-27_tavern_keep_robin.jpeg" alt="Tavern Keeper Robin" style="display: block; margin: 0 auto 2rem auto; border-radius: 12px; max-width: 100%;">
 
-## Venue
+## Thanks
 
-[CO+HOOTS, Mesa](https://cohoots.com/locations/mesa/)<br>
-225 E Main St (Suite 201), 85201
+* Pizza and Soda sponsored by [FASCINATION•works](https://fascination.works/)
+* Event space provided by [CO+HOOTS, Mesa](https://cohoots.com/locations/mesa/)
 
 ## Links
 
 * [Photo by j_arred](https://www.flickr.com/photos/30395273@N02/6074735344/in/photostream/), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
+* [Rack talk sample source code](https://github.com/FASCINATION-works/rack-without-frameworks)
+* [Tea Tavern](https://tea-tavern.com)
+* [Federated - All the apps your business needs](https://www.federated.computer/)
+* [Hermes Agent](https://hermes-agent.nousresearch.com/)
+
+<a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="btn--primary-alt">Want to present at a future meetup?</a>
