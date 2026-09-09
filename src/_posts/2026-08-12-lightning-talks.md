@@ -32,7 +32,7 @@ We had three talks which resulted in a lot of discussion and questions.
 * [Photo by j_arred](https://www.flickr.com/photos/30395273@N02/6074735344/in/photostream/), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
 * [Rack talk sample source code](https://github.com/FASCINATION-works/rack-without-frameworks)
 * [Tea Tavern](https://tea-tavern.com)
-* [Federated - All the apps your business needs](https://www.federated.computer/)
+* [Federated - All the apps your business needs](https://www.federated.computer/) - use `TEA-TAVERN` to get 15% off for 6 months
 * [Hermes Agent](https://hermes-agent.nousresearch.com/)
 
 <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="btn--primary-alt">Want to present at a future meetup?</a>
