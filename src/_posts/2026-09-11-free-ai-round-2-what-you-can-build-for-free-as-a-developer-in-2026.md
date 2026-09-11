@@ -4,6 +4,7 @@ title: "Free AI: Round 2! What You Can Build for $0 as a Developer in 2026"
 event_date: "2026-09-17"
 tags: ["meetup"]
 meetup_link: "https://www.meetup.com/ruby-az/events/316515586/"
+mastodon_post_url: "https://ruby.social/@Ruby_AZ/117253408763397767"
 ---
 
 <img src="/images/free-ai-r2.webp" alt="Free AI: Round 2" style="display: block; margin: 0 auto 2rem auto; border-radius: 12px; max-width: 100%;">
