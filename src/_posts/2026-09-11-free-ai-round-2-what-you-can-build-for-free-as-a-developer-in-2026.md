@@ -5,6 +5,7 @@ event_date: "2026-09-17"
 tags: ["meetup"]
 meetup_link: "https://www.meetup.com/ruby-az/events/316515586/"
 mastodon_post_url: "https://ruby.social/@Ruby_AZ/117253408763397767"
+bluesky_post_url: "https://bsky.app/profile/rubyaz.bsky.social/post/3mvo3ck4cf326"
 ---
 
 <img src="/images/free-ai-r2.webp" alt="Free AI: Round 2" style="display: block; margin: 0 auto 2rem auto; border-radius: 12px; max-width: 100%;">
