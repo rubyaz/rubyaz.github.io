@@ -4,6 +4,8 @@ title: "Other People's Lightning Talks"
 event_date: "2026-10-22"
 tags: ["meetup"]
 # meetup_link: "https://www.meetup.com/ruby-az/events/..."
+mastodon_post_url: "https://ruby.social/@Ruby_AZ/117441162928704585"
+bluesky_post_url: "https://bsky.app/profile/rubyaz.bsky.social/post/3mxufdt5rtm2c"
 ---
 
 <img src="/images/op_lightning_talks.png" alt="Other People's Lightning Talks" style="display: block; margin: 0 auto 2rem auto; border-radius: 12px; max-width: 100%;">
