@@ -16,6 +16,9 @@ Rather than our usual format, we'll be watching a curated selection of interesti
 
 Between talks, we'll pause for short discussions to chat about what stood out, unpack interesting techniques, or bounce ideas around the room. Lightning talks are fast-paced, varied, and great conversation starters, so whether you're brand new to Ruby or have been writing it for years, come join us!
 
+We're looking forward to seeing you at [CO+HOOTS, Mesa](https://cohoots.com/locations/mesa/) on Thursday, October 22nd at 7pm.
+
+
 ## Thanks
 
 * Event space provided by [CO+HOOTS, Mesa](https://cohoots.com/locations/mesa/)
