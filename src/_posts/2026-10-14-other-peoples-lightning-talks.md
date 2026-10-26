@@ -10,18 +10,26 @@ bluesky_post_url: "https://bsky.app/profile/rubyaz.bsky.social/post/3mxufdt5rtm2
 
 <img src="/images/op_lightning_talks.png" alt="Other People's Lightning Talks" style="display: block; margin: 0 auto 2rem auto; border-radius: 12px; max-width: 100%;">
 
-This month, we're doing something a little different: **Other People's Lightning Talks**!
+This month, we did something a little different: **Other People's Lightning Talks**!
 
-Rather than our usual format, we'll be watching a curated selection of interesting lightning talks from recent Ruby and Rails conferences &mdash; including RubyConf, Brighton Ruby, Blastoff Rails, and more (culled from the collection on [RubyEvents.org](https://www.rubyevents.org/talks?kind=lightning_talk)).
+Rather than our usual format, we watched a curated selection of interesting lightning talks from recent Ruby and Rails conferences &mdash; including RubyConf, Brighton Ruby, Blastoff Rails, and more (culled from the collection on [RubyEvents.org](https://www.rubyevents.org/talks?kind=lightning_talk)).
 
-Between talks, we'll pause for short discussions to chat about what stood out, unpack interesting techniques, or bounce ideas around the room. Lightning talks are fast-paced, varied, and great conversation starters, so whether you're brand new to Ruby or have been writing it for years, come join us!
+Between talks, we paused for short discussions to chat about what stood out, unpack interesting techniques, and bounce ideas around the room.
 
-We're looking forward to seeing you at [CO+HOOTS, Mesa](https://cohoots.com/locations/mesa/) on Thursday, October 22nd at 7pm.
+## Talks
+
+We watched the following talks:
+
+* [Woodworking for Rubyists](https://www.rubyevents.org/talks/lightning-talk-woodworking-for-rubyists) - [Tijmen Brommet](https://www.rubyevents.org/profiles/tijmenb)
+* [Rails Performance and Sky Cards](https://www.rubyevents.org/talks/lightning-talk-rails-performance-and-sky-cards) - [Kyle Powers](https://www.rubyevents.org/profiles/mfkp)
+* [F̶r̶a̶m̶e̶w̶o̶r̶k̶ Core focus in the AI age](https://www.rubyevents.org/talks/lightning-talk-f-r-a-m-e-w-o-r-k-core-focus-in-the-ai-age) - [Jed Schneider](https://www.rubyevents.org/profiles/jedschneider)
+* [Your own gem named "rails"](https://www.rubyevents.org/talks/lightning-talk-your-own-gem-named-rails) - [André Arko](https://www.rubyevents.org/profiles/indirect)
+* [Teaching Claude Code to Upgrade Rails](https://www.rubyevents.org/talks/lightning-talk-teaching-claude-code-to-upgrade-rails) - [Ernesto Tagwerker](https://www.rubyevents.org/profiles/etagwerker)
 
 
 ## Thanks
 
 * Event space provided by [CO+HOOTS, Mesa](https://cohoots.com/locations/mesa/)
+* Pizza and Sodas provided by [Bloomlight](https://bloomlight.app/early-access/ruby-az-cohoots/)
 
 <a href="mailto:rubyaz@heiligers.us?subject=I'd like to speak at RubyAZ" class="btn--primary-alt">Want to present at a future meetup?</a>
-
