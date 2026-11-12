@@ -4,6 +4,8 @@ title: "Ruby Game Dev & AI-Powered Web Scraping"
 event_date: "2026-11-19"
 tags: ["meetup"]
 meetup_link: "https://www.meetup.com/ruby-az/events/317403507/"
+mastodon_post_url: "https://ruby.social/@Ruby_AZ/117606165453430010"
+bluesky_post_url: "https://bsky.app/profile/rubyaz.bsky.social/post/3n25o6c3snm2x"
 ---
 
 <img src="/images/game_dev_and_web_scraping.png" alt="Ruby Game Dev & AI-Powered Web Scraping" style="display: block; margin: 0 auto 2rem auto; border-radius: 12px; max-width: 100%;">
