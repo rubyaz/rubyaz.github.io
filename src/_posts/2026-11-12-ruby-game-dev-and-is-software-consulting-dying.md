@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ruby Game Dev & AI-Powered Web Scraping"
+title: "Ruby Game Dev & Is Software Consulting Dying?"
 event_date: "2026-11-19"
 tags: ["meetup"]
 meetup_link: "https://www.meetup.com/ruby-az/events/317403507/"
@@ -22,7 +22,7 @@ Jay McGavren, author of O'Reilly's *Head First Ruby*, joins us to share the stor
 
 ### Web Scraping via LLMs & MCP &mdash; Chris Irish
 
-Chris Irish will share a real-world look at using LLMs and the Model Context Protocol (MCP) to scrape Upwork and identify high-value jobs. He'll touch on the practicalities of disposable, AI-generated scraper code, MCP integrations, and what happens when you let models handle the extraction dirty work.
+Chris Irish will ask whether software consulting is dying. Over six weeks he recorded more than 4,500 freelance job postings: what clients ask for, what they say they'll pay, and how often a posting turns into a hire. He'll share where Rails fits, what people who built an app with AI actually want from a developer, and which kinds of work still hold their price.
 
 We're looking forward to seeing you at [CO+HOOTS, Mesa](https://cohoots.com/locations/mesa/) on Thursday, November 19th at 7:00 PM. Come hang out, learn something new, and catch up with your fellow Arizona Rubyists!
 
